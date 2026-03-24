@@ -1,0 +1,68 @@
+h1
+{
+    color: rgb(255, 55, 0);
+}
+/*estilo general de la pagina*/
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    line-height: 1.6;
+}
+/*encabezado*/
+header 
+{
+    background-color: #1879a3 ;
+    color: rgba(255, 255, 255, 0.477);
+    text-align: center;
+    padding: 30px 20px;
+}
+/*menu de navegacion*/
+nav 
+{
+    background-color: #50c5c5;
+    text-align: center;
+    padding: 12px;
+}
+/*enlaces del menu*/
+nav a
+{
+    color: red;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+/*efecto al pasar el mouse*/
+nav a:hover 
+{
+    color: rgb(0, 0, 0);
+}
+/*secciones*/
+section
+{
+    background-color: rgb(136, 0, 255);
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    border-radius: 8px;
+}
+/**/
+img
+{
+    border-radius: 10px;
+    margin-top: 10px;
+}
+footer
+{
+    background-color: rgb(143, 143, 215);
+}
+
+footer
+{
+    background-color: #ff0000c4;
+    color: rgb(95, 0, 0);
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
