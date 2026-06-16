@@ -9,29 +9,148 @@
 <body>
     <header>
        <h1>mi pagina personal</h1>
+       <button id="theme-toggle" onclick="toggleDarkMode()">🌙 modo oscuro</button>
     </header>
     <nav>
         <a href="#sobre_mi">sobre mi</a>
         <a href="#proyecto_pec">proyecto pec</a>
+        <a href="#centro-interactivo">Centro Interactivo</a>
     </nav>
+    <section id="centro-interactivo">
+        <h2>🌟 Centro Interactivo con Botones Dinámicos</h2>
+        <div id="buttons-container" class="dynamic-container"></div>
+        <button onclick="addRandomButton()">➕ Agregar Botón Dinámico Aleatorio</button>
+    </section>
     <section id="sobre_mi">
         <img src="IMG/targeta de presentacion digital.jpg" alt="mi targeta" width="400" height="200">
         <h2>Hola soy estudiante del CECyTE e-35</h2>
-        <p>Mi nombre es keny</p>
+        <button id="toggle-sobre-mi" class="btn-toggle" type="button" aria-expanded="false" aria-controls="Hola" onclick="toggle_saludo()">mostrar informacion</button>
+        <p id="Hola" class="toggle-content" hidden></p>
         <h3>estoy cursando el sexto semestre y final</h3>
         <p>MI PASATIEMPO FAVORITO ES JUGAR VIDEOJUEGOs</p>
+
 
     </section>
     <section id="proyecto_pec"> 
         <h1>proyecto pec</h1>
         <h2> huellas: cuidado animal y salud comunitario</h2>
+        <button id="toggle-proyecto-pec" class="btn-toggle" type="button" aria-expanded="false" aria-controls="mensaje-animales" onclick="toggle_mensaje_pec()">mostrar mensaje</button>
+        <p id="mensaje-animales" class="toggle-content" hidden></p>
+
         <img src="IMG/HUELLAS SALUD COMUNITARIA Y CUIDADO ANIMAL.png" alt="banner" width="400" height="200">
-        <h4>una campaña para ayudar a las mascotas callejeras y nuestras mascotas</h4>
+
+        <div class="video-cta">
+            <button type="button" class="btn-primary" onclick="openVideoModal()">▶ Ver video de presentación</button>
+            <p class="muted">Se abrirá en ventana modal</p>
+        </div>
+
+        <h4>una campaña para ayudar a las mascotas Callejeras y nuestras mascotas</h4>
         <h4>les enseñaremos a los mas jovenes a tratar bien a una mascota personal o callejero</h4>
         <h4>y asi eliminar a los perros callejeros y evitar esa plaga</h4>
     </section>
+    <!-- FAQ / Acordeón -->
+    <section id="faq" class="faq-section">
+        <h2>Preguntas frecuentes</h2>
+        <div class="accordion" role="region" aria-label="Preguntas frecuentes">
+            <div class="accordion-item" data-accordion>
+                <button class="accordion-header" type="button" aria-expanded="false">
+                    <span>¿De qué trata el proyecto?</span>
+                    <span class="accordion-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content" hidden>
+                    <div class="accordion-inner">
+                        Trata de mejorar el cuidado animal y fortalecer la salud comunitaria mediante campañas educativas y acciones prácticas.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item" data-accordion>
+                <button class="accordion-header" type="button" aria-expanded="false">
+                    <span>¿Cómo puedo participar?</span>
+                    <span class="accordion-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content" hidden>
+                    <div class="accordion-inner">
+                        Puedes acercarte, apoyar en eventos y compartir la información para sensibilizar a más personas.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item" data-accordion>
+                <button class="accordion-header" type="button" aria-expanded="false">
+                    <span>¿Por qué es importante para las mascotas?</span>
+                    <span class="accordion-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="accordion-content" hidden>
+                    <div class="accordion-inner">
+                        Porque los animales sienten y necesitan respeto; promover buenas prácticas reduce el abandono y el maltrato.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carrusel / Galería -->
+    <section id="galeria" class="gallery-section">
+        <h2>Galería</h2>
+        <div class="carousel" aria-roledescription="carousel" aria-label="Carrusel de imágenes">
+            <div class="carousel-track" id="carouselTrack">
+                <figure class="slide is-active">
+                    <img src="IMG/targeta de presentacion digital.jpg" alt="Presentación digital">
+                    <figcaption>Presentación digital</figcaption>
+                </figure>
+                <figure class="slide">
+                    <img src="IMG/HUELLAS SALUD COMUNITARIA Y CUIDADO ANIMAL.png" alt="Huellas: salud comunitaria y cuidado animal">
+                    <figcaption>Huellas: salud comunitaria y cuidado animal</figcaption>
+                </figure>
+                <figure class="slide">
+                    <img src="IMG/wasa.jpg" alt="Contacto / comunidad">
+                    <figcaption>Contacto / comunidad</figcaption>
+                </figure>
+            </div>
+
+            <div class="carousel-controls">
+                <button type="button" class="carousel-btn" onclick="carouselPrev()" aria-label="Anterior">◀</button>
+                <div class="carousel-dots" id="carouselDots" aria-label="Indicadores"></div>
+                <button type="button" class="carousel-btn" onclick="carouselNext()" aria-label="Siguiente">▶</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal video -->
+    <div id="videoModal" class="modal" aria-hidden="true" role="dialog" aria-label="Video de presentación">
+        <div class="modal-dialog">
+        <button type="button" class="modal-close" onclick="closeVideoModal()" aria-label="Cerrar">✕</button>
+            <div class="modal-body">
+                <iframe id="videoFrame" width="560" height="315" src="about:blank" title="Video de presentación" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="video-cta">
+        <button type="button" class="btn-primary" onclick="openVideoModal()">▶ Ver video de presentación</button>
+        <p class="muted">Se abrirá en ventana modal</p>
+    </div>
+
     <footer>
         <p>2026_keny</p>
     </footer>
+
+
+    <!-- Botón WhatsApp flotante -->
+
+    <a class="whatsapp-fab" href="https://wa.me/5210000000000" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <span><img src="IMG/wasa.jpg" alt=""></span>
+    </a>
+
+    <!-- Botón volver al inicio -->
+    <a class="back-to-top" href="#" aria-label="Volver al inicio">
+        <img src="IMG/regreso.png" alt="">
+    </a>
+
+    <script src="script.js"></script>
+    
 </body>
 </html>
+
