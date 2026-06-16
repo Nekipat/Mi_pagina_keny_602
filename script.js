@@ -138,7 +138,8 @@ function addRandomButton() {
 
     const actions = [
         () => {
-            document.body.style.background = randomColor + ' !important';
+            // Cambia el fondo de forma válida (sin !important desde JS)
+            document.body.style.background = randomColor;
             showToast('Color cambiado');
         },
         () => showToast('¡Botón dinámico activado! 🪄'),
@@ -200,9 +201,9 @@ window.addEventListener('darkModeChange', () => {
         : 'radial-gradient(circle, rgba(0,240,255,0.4), transparent)';
 });
 
-document.querySelectorAll('button, a').forEach(el => {
-    el.addEventListener('click', (e) => e.stopPropagation());
-});
+
+// Nota: evitamos stopPropagation global para no interferir con clicks que cierran modales.
+
 
 // ======= Acordeón FAQ =======
 function initAccordion() {
